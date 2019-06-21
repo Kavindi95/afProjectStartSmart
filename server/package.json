@@ -16,12 +16,7 @@
     "gridfs-stream": "^1.1.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.6.0",
-<<<<<<< HEAD
     "morgan": "^1.9.1",
-=======
-    "multer": "^1.4.1",
-    "multer-gridfs-storage": "^3.2.3",
->>>>>>> 3d163e5e0b56a6cf35c3f686949f0f8544db267f
     "nodemon": "^1.19.1"
   }
 }
