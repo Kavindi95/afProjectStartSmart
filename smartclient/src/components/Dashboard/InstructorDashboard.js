@@ -1,11 +1,26 @@
-import React from "react";
+import React, { Component } from "react";
 import { Container, Button, ButtonGroup } from "reactstrap";
+import Addassignmentdashboard from "../../components/Instructor/addAssignment/addAssignment"
 
-const InstructorDashboard = props => {
-  return (
-    <Container>
+export default class InstructorDashboard extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibleAA: false,
+    };
+   
+  }
+
+  
+
+  render(){
+    return(
+      <Container>
       <ButtonGroup>
-        <Button size="md" color="warning">
+        <Button size="md" color="warning" onClick={() => {
+                this.setState({ visibleAA:!this.state.visibleAA });
+              }}>
           Add Assignments
         </Button>{" "}
         <Button size="md" color="warning">
@@ -30,8 +45,19 @@ const InstructorDashboard = props => {
           Mark Exams
         </Button>
       </ButtonGroup>{" "}
-    </Container>
-  );
-};
+      <div>
+      {this.state.visibleAA ? (
+              <Addassignmentdashboard />
+            ) : (
+              <div> Launch to View Student Activities </div>
+            )}
+      </div>
+      <div>
+      </div>
+    </Container>  
+    );
+  }
+}
 
-export default InstructorDashboard;
+
+
