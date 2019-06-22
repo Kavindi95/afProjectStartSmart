@@ -5,7 +5,7 @@ const Instructor = require("../model/instructor/instructor");
 describe("Saving Data", function() {
   it("Addding Instructor", function(done) {
     var instructor = new Instructor({
-      name: "MochaTestInstructor1",
+      filename: "MochaTestFileUpload1",
       email: "alpha.4spirits@gmail.com",
       password: "12369",
       username: "TestInstructor1"

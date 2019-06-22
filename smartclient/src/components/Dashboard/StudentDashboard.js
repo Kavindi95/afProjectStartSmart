@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { Container, Button, ButtonGroup, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import { BrowserRouter as Router, Route, Link, Switch, Redirect, NavLink } from 'react-router-dom';
+//import { BrowserRouter as Router, Route, Link, Switch, Redirect, NavLink } from 'react-router-dom';
 
 import ViewAssignmentAndUpload from "../../components/Student/viewAssignmentAndUpload/viewAssignmentAndUpload";
 import ViewExamAndUpload from "../../components/Student/viewExamAndUpload/viewExamAndUpload";
