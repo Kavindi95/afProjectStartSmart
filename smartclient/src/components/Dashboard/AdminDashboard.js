@@ -44,7 +44,7 @@ export default class AdminDashboard extends Component {
     return (
       <Container>
         <ButtonGroup>
-          <Button size="md" color="warning" onClick={this.toggleA}>
+          <Button size="md" color="info" onClick={this.toggleA}>
             Add Administrators
           </Button>
 
@@ -64,7 +64,7 @@ export default class AdminDashboard extends Component {
             </ModalFooter>
           </Modal>
 
-          <Button size="md" onClick={this.toggleI} color="warning">
+          <Button size="md" onClick={this.toggleI} color="info">
             Add Instructors
           </Button>
 
@@ -85,11 +85,11 @@ export default class AdminDashboard extends Component {
           </Modal>
         </ButtonGroup>
         <ButtonGroup>
-          <Button size="md" color="warning">
+          <Button size="md" color="info">
             Add Courses
           </Button>
           <br />
-          <Button size="md" color="warning">
+          <Button size="md" color="info">
             Assign Instructors
           </Button>
         </ButtonGroup>{" "}

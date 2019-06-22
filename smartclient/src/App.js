@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container } from "reactstrap";
+import "./App.css";
+
 
 import Page from "./components/Dashboard/Page";
 
