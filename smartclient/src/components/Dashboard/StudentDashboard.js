@@ -11,32 +11,72 @@ class StudentDashboard extends Component {
     constructor(){
         super();
 
+        this.state = {
+            visibleUploadAssignment: false,
+            visibleUploadExam: false
+        };
+        this.state = {
+            modalUploadAssignment: false,
+            modalUploadExam: false
+        };
+
+        this.toggleUploadAssignment = this.toggleUploadAssignment.bind(this);
+        this.toggleUploadExam = this.toggleUploadExam.bind(this);
+
     }
+    toggleUploadAssignment() {
+        this.setState(prevState => ({
+            modalUploadAssignment: !prevState.modalUploadAssignment
+        }));
+    }
+    toggleUploadExam() {
+        this.setState(prevState => ({
+            modalUploadExam: !prevState.modalUploadExam
+        }));
+    }
+
  render() {
      return (
-         <Router>
-            <div>
-                <ul>
-                    <li>
-                        <NavLink to="/" exact activeStyle={
-                                { color:"green" }
-                        }>Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={"/assignment"} exact activeStyle={
-                            { color:"green" }
-                     }>Assignments</NavLink>
-                    </li>
-                     <li>
-                         <NavLink to={"/exam"} exact activeStyle={
-                         { color:"green" }
-                     }>Exams</NavLink>
-                     </li>
-                </ul>
-                <Route path="/assignment" component={ViewAssignmentAndUpload} />
-                <Route path="/exam" component={ViewExamAndUpload} />
-            </div>
-         </Router>
+         <Container>
+         <ButtonGroup>
+         <Button size="md" color="warning" onClick={this.toggleUploadAssignment}>
+         Assignments
+         </Button>
+         <Modal
+     isOpen={this.state.modalUploadAssignment}
+     toggle={this.toggleUploadAssignment}
+     className={this.props.className}
+         >
+         <ModalHeader toggle={this.toggleUploadAssignment}>Assignments</ModalHeader>
+         <ModalBody>
+         <ViewAssignmentAndUpload />
+         </ModalBody>
+         <ModalFooter>
+         <Button color="secondary" onClick={this.toggleUploadAssignment}>
+         Cancel
+         </Button>
+         </ModalFooter>
+         </Modal>
+         <Button size="md" color="warning" onClick={this.toggleUploadExam}>
+         Exams
+         </Button>
+         <Modal
+     isOpen={this.state.modalUploadExam}
+     toggle={this.toggleUploadExam}
+     className={this.props.className}
+         >
+         <ModalHeader toggle={this.toggleUploadExam}>Exams</ModalHeader>
+         <ModalBody>
+         <ViewExamAndUpload />
+         </ModalBody>
+         <ModalFooter>
+         <Button color="secondary" onClick={this.toggleUploadExam}>
+         Cancel
+         </Button>
+         </ModalFooter>
+         </Modal>
+         </ButtonGroup>
+         </Container>
  );
  }
 };

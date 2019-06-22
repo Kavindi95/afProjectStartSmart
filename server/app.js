@@ -3,6 +3,7 @@ const app = express();
 const morgan = require("morgan");
 const bodyPorser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require('cors');
 
 const instructorAddAssignment = require("./routes/instructor/addassignments");
 const admin = require("./routes/admin/adminRoutes");
@@ -18,6 +19,7 @@ mongoose.connect(
 app.use(morgan("dev"));
 app.use(bodyPorser.urlencoded({ extended: false }));
 app.use(bodyPorser.json());
+app.use(cors());
 
 app.use("/addassignment", instructorAddAssignment);
 app.use("/admin", admin);
