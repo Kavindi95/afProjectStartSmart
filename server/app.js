@@ -8,6 +8,7 @@ const cors = require('cors');
 const instructorAddAssignment = require("./routes/instructor/addassignments");
 const admin = require("./routes/admin/adminRoutes");
 const instructor = require("./routes/instructor/instructorRoutes");
+ const user = require("./routes/UserRoute/User");
 
 mongoose.connect(
   "mongodb+srv://tharuka:tharuka12345@afprojectstartsmart-ycawy.mongodb.net/test?retryWrites=true&w=majority",
@@ -20,10 +21,10 @@ app.use(morgan("dev"));
 app.use(bodyPorser.urlencoded({ extended: false }));
 app.use(bodyPorser.json());
 app.use(cors());
-
 app.use("/addassignment", instructorAddAssignment);
 app.use("/admin", admin);
 app.use("/instructor", instructor);
+ app.use("/user", user);
 
 app.use((req, res, next) => {
   const error = new Error("Not Found");
