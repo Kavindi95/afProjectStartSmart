@@ -9,7 +9,7 @@ const AssignMessage = ({msg}) => {
         <span aria-hidden="true">&times;</span>
     </button>
     </div>
-    )
+)
 }
 AssignMessage.propTypes = {
     msg: PropTypes.string.isRequired

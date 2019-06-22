@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect, NavLink } from 
 
 import ViewAssignmentAndUpload from "../../components/Student/viewAssignmentAndUpload/viewAssignmentAndUpload";
 import ViewExamAndUpload from "../../components/Student/viewExamAndUpload/viewExamAndUpload";
-import AddAdmin from "../AddToSystem/AddAdmin";
 
 class StudentDashboard extends Component {
 
