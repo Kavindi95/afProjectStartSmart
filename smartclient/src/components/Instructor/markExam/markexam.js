@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 class markExam extends Component{
 
     entermarks(e){
 
         e.preventDefault();
-        console.log(this.refs.extype.value);
-        console.log(this.refs.exid.value);
-        console.log(this.refs.std.value);
-        console.log(this.refs.cname.value);
-        console.log(this.refs.subname.value);
-        console.log(this.refs.marks.value);
+        var extype=this.refs.extype.value;
+        var exid=this.refs.exid.value;
+        var std=this.refs.std.value;
+        var cname=this.refs.cname.value;
+        var subname=this.refs.subname.value;
+        var marks=this.refs.marks.value;
+
+        axios.post(
+            "http://localhost:5000/markexam",
+            {
+                examtype: extype,
+                examid: exid,
+                std: std,
+                cname: cname,
+                subname: subname,
+                marks: marks
+            },
+            { headers: { Accept: "application/json" } }
+          );
+          console.log("posted");
 
     }
 

@@ -10,6 +10,9 @@ const fileUpload = require('express-fileupload');
 const instructorAddAssignment = require("./routes/instructor/addassignments");
 const admin = require("./routes/admin/adminRoutes");
 const instructor = require("./routes/instructor/instructorRoutes");
+const instructorAddExam=require("./routes/instructor/addexams");
+const markAssignment=require("./routes/instructor/marksassignments");
+const markExam=require("./routes/instructor/marksexams");
 
 mongoose.connect(
   "mongodb+srv://tharuka:tharuka12345@afprojectstartsmart-ycawy.mongodb.net/test?retryWrites=true&w=majority",
@@ -28,6 +31,9 @@ app.use(fileUpload());
 app.use("/addassignment", instructorAddAssignment);
 app.use("/admin", admin);
 app.use("/instructor", instructor);
+app.use("/addexam",instructorAddExam);
+app.use("/markassignment",markAssignment);
+app.use("/markexam",markExam);
 
 app.use((req, res, next) => {
   const error = new Error("Not Found");
