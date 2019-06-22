@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
 import {
   Container,
   Col,
@@ -7,33 +8,93 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  FormText
+  Input
 } from "reactstrap";
 
-export default class AddInstructor extends React.Component {
+export default class AddInstructor extends Component {
+  constructor(props) {
+    super(props);
+
+    this.updateusername = this.updateusername.bind(this);
+    this.updatepassword = this.updatepassword.bind(this);
+    this.updatename = this.updatename.bind(this);
+    this.updateemail = this.updateemail.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      username: "",
+      password: "",
+      name: "",
+      email: ""
+    };
+  }
+
+  updateusername(e) {
+    this.setState({ username: e.target.value });
+  }
+
+  updatepassword(e) {
+    this.setState({ password: e.target.value });
+  }
+  updatename(e) {
+    this.setState({ name: e.target.value });
+  }
+  updateemail(e) {
+    this.setState({ email: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const meo = {
+      username: this.state.username,
+      password: this.state.password,
+      name: this.state.name,
+      email: this.state.email
+    };
+    axios
+      .post("http://localhost:3000/instructor/", meo)
+      .then(res => console.log(res.data));
+
+    this.setState({
+      username: "",
+      password: "",
+      name: "",
+      email: ""
+    });
+  }
+
   render() {
     return (
       <Container>
-        <Form>
+        <Form onSubmit={this.onSubmit}>
+          <Label>
+            <strong>
+              <font size="4">Add Instructor Details</font>
+            </strong>
+          </Label>
           <Row form>
             <Col md={6}>
               <FormGroup>
-                <Label for="exampleEmail">Email</Label>
+                <Label>User Name</Label>
                 <Input
-                  type="email"
-                  name="email"
-                  id="exampleEmail"
-                  placeholder="Enter Email"
+                  type="text"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.updateusername}
+                  id="userName"
+                  placeholder="Enter User Name"
                 />
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
-                <Label for="examplePassword">Password</Label>
+                <Label>Password</Label>
                 <Input
                   type="password"
                   name="password"
+                  value={this.state.password}
+                  onChange={this.updatepassword}
                   id="examplePassword"
                   placeholder="Enter a Password"
                 />
@@ -41,29 +102,32 @@ export default class AddInstructor extends React.Component {
             </Col>
           </Row>
           <FormGroup>
-            <Label for="exampleAddress"> Name</Label>
-            <Input type="text" name="Name" id="Name" placeholder="Enter Name" />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleAddress2">Prefered User Name</Label>
+            <Label> Name</Label>
             <Input
               type="text"
-              name="userName"
-              id="userName"
-              placeholder="Enter a Prefered User Name"
+              name="name"
+              value={this.state.name}
+              onChange={this.updatename}
+              id="Name"
+              placeholder="Enter Name"
             />
           </FormGroup>
 
-          <Row form>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="Qualifications">Qualifications</Label>
-                <Input type="text" name="Qualifications" id="Qualifications" />
-              </FormGroup>
-            </Col>
-          </Row>
+          <FormGroup>
+            <Label>Email</Label>
+            <Input
+              type="email"
+              name="name"
+              value={this.state.email}
+              onChange={this.updateemail}
+              id="exampleEmail"
+              placeholder="Enter Email"
+            />
+          </FormGroup>
 
-          <Button color="success">ADD</Button>
+          <Button type="submit" className="btn btn-success">
+            ADD
+          </Button>
         </Form>
       </Container>
     );
