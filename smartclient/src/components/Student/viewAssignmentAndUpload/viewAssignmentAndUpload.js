@@ -28,6 +28,7 @@ class ViewAssignmentAndUpload extends Component{
                 <td>{assignment.cname}</td>
                 <td>{assignment.subname}</td>
                 <td>{assignment.assignment}</td>
+                <td>{assignment.date}</td>
             </tr>
         )
         });
@@ -40,6 +41,7 @@ class ViewAssignmentAndUpload extends Component{
             <th scope="col">Course Name</th>
             <th scope="col">Subject Name</th>
             <th scope="col">Available Assignment</th>
+            <th scope="col">Due Date</th>
             </tr>
             </thead>
             <tbody>
@@ -47,9 +49,9 @@ class ViewAssignmentAndUpload extends Component{
             </tbody>
             </table>
             <div className="container mt-4">
-            <h3 className="display-4 text-center mb-4">
-            <i className="fab fa-react"></i>Upload Assignment
-            </h3>
+            <h2 className="display-4 text-center mb-4">
+            Upload Assignment
+            </h2>
             <FileUpload />
             </div>
     </div>

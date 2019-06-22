@@ -38,7 +38,7 @@ class StudentDashboard extends Component {
      return (
          <Container>
          <ButtonGroup>
-         <Button size="md" color="warning" onClick={this.toggleUploadAssignment}>
+         <Button size="md" color="info" onClick={this.toggleUploadAssignment}>
          Assignments
          </Button>
          <Modal
@@ -56,7 +56,7 @@ class StudentDashboard extends Component {
          </Button>
          </ModalFooter>
          </Modal>
-         <Button size="md" color="warning" onClick={this.toggleUploadExam}>
+         <Button size="md" color="info" onClick={this.toggleUploadExam}>
          Exams
          </Button>
          <Modal

@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const Assignment=require('../../model/Course/CourseDetails');
+const course=require('../../model/Course/CourseDetails');
 
 router.post("/", (req, res, next) => {
-    const course = new course({
-
-        create and give a new & unique id
+    const courses = new course({
 
     coursename: req.body.coursename,
     duration:  req.body.duration,
@@ -16,7 +14,7 @@ router.post("/", (req, res, next) => {
     semprice:  req.body.semprice,
     subdetails: req.body.subdetails
     });
-course
+courses
     .save()
     .then(result => {
     console.log(result);
@@ -25,7 +23,18 @@ course
 
 res.status(200).json({
     message: "course Added Successfully",
-    createdbrs: course
+    createdbrs: courses
 });
+});
+
+router.get('/', function (req, res) {
+    course.find({}, function (err, users) {
+        if (err) return res.status(500).json({
+            "error": "Error encountered Please try again."
+        });
+        res.status(200).json({
+            "data": users
+        });
+    });
 });
 module.exports = router;

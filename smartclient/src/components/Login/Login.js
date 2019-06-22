@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-
+import {Link} from "react-router-dom";
 class Login extends Component {
     constructor() {
         super()
@@ -66,7 +66,8 @@ class Login extends Component {
                                        value={this.state.type}
                                        onChange={this.onChange} />
                             </div>
-                            <button type="submit" className="btn btn-lg btn-primary btn-block">
+
+                            <button type="submit" className="btn btn-lg btn-primary btn-block" as={Link} to="/home" >
                                 Sign in
                             </button>
                         </form>
