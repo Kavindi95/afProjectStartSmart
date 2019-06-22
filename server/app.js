@@ -19,21 +19,6 @@ app.use(morgan("dev"));
 app.use(bodyPorser.urlencoded({ extended: false }));
 app.use(bodyPorser.json());
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-Width, Content-Type, Accept, Authorization"
-  );
-  if (req.method === "OPTIONS") {
-    //OPTIONS FOR POST AND PUT OPERATIONS
-    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-    return res.status(200).json({});
-  }
-  next(); //if it is not a POST or PUT request other routes can take this over
-});
-
 app.use("/addassignment", instructorAddAssignment);
 app.use("/admin", admin);
 app.use("/instructor", instructor);

@@ -1,23 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Button, ButtonGroup } from "reactstrap";
-import axios from "axios";
 
 class AddAssignment extends Component{
-    
-    addassignmentss(e){
-        e.preventDefault();
-     
-  
-        axios.get("http://localhost:5000/addassignment").then(response => {
-    
 
-      console.log(response.data);
-    });
- 
-    }
     render(){
         return(
-            <Container>
             <div>
             <h1>Generate Assignment</h1>
             </div>
@@ -31,7 +17,7 @@ class AddAssignment extends Component{
                         className="form-control"
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group>
                     <label>Subject Name</label>
                     <input
                         type="text"
@@ -56,18 +42,14 @@ class AddAssignment extends Component{
                         />
                     </div>
                     <div className="form-group">
-                    <button
-              type="button"
-              className="btn btn-warning btn-block"
-              onClick={this.addassignmentss.bind(this)}
-              
-            >
-              Generate Assignments
-            </button>
+                    <input
+                        type="submit"
+                        name="submitAssignment"
+                        value="Submit"
+                    />
                     </div>
                 </form>
             </div>
-            </Container>
         )
     }
 }
