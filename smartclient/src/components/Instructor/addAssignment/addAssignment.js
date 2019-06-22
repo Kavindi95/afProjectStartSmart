@@ -17,7 +17,7 @@ class AddAssignment extends Component{
                         className="form-control"
                         />
                     </div>
-                    <div className="form-group>
+                    <div className="form-group">
                     <label>Subject Name</label>
                     <input
                         type="text"
