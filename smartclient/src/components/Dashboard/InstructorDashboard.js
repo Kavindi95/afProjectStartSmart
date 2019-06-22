@@ -7,6 +7,7 @@ import Updateexam from "../../components/Instructor/updateExam/updateExam";
 import Markassignment from "../../components/Instructor/marksAssignment/markassignment";
 import Markexam from "../../components/Instructor/markExam/markexam";
 
+<<<<<<< HEAD
 export default class InstructorDashboard extends Component {
 
   constructor(props) {
@@ -62,6 +63,34 @@ export default class InstructorDashboard extends Component {
         <Button size="md" color="warning" onClick={() => {
                 this.setState({ visibleME:!this.state.visibleME });
               }}>
+=======
+const InstructorDashboard = props => {
+  return (
+    <Container>
+      <ButtonGroup>
+        <Button size="md" color="info">
+          Add Assignments
+        </Button>{" "}
+        <Button size="md" color="info">
+          Add Examinations
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button size="md" color="info">
+          Manage Assignments
+        </Button>
+        <br />
+        <Button size="md" color="info">
+          Manage Exams
+        </Button>
+      </ButtonGroup>{" "}
+      <ButtonGroup>
+        <Button size="md" color="info">
+          Mark Assignments
+        </Button>
+        <br />
+        <Button size="md" color="info">
+>>>>>>> 9e6108eb600947832311667f8ff9215e7394b28f
           Mark Exams
         </Button>
         <br/>
