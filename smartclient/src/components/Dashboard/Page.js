@@ -15,7 +15,7 @@ import {
   Button
 } from "reactstrap";
 
-import Home from "./Home";
+import Login from "../Login/Login"
 
 export default class Page extends React.Component {
   constructor(props) {
@@ -83,7 +83,7 @@ export default class Page extends React.Component {
           </Navbar>
           <br />
           {this.state.visible ? (
-            <Home />
+            <Login/>
           ) : (
             <div>
               <font size="5" color="black">

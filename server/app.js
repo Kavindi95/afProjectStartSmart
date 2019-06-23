@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const bodyPorser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require('cors');
+
 //file upload
 const fileUpload = require('express-fileupload');
 const path = require('path');
@@ -12,6 +13,7 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
+
 
 const instructorAddAssignment = require("./routes/instructor/addassignments");
 const admin = require("./routes/admin/adminRoutes");
@@ -31,9 +33,11 @@ app.use(morgan("dev"));
 app.use(bodyPorser.urlencoded({ extended: false }));
 app.use(bodyPorser.json());
 app.use(cors());
+
 //file upload
 app.use(fileUpload());
 app.use(methodOverride('_method'));
+
 
 app.use("/addassignment", instructorAddAssignment);
 app.use("/admin", admin);
@@ -90,6 +94,7 @@ app.use((error, req, res, next) => {
     }
   });
 });
+
 /*
 //@route POST /upload
 //@desc Uploads file to DB
