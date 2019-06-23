@@ -6,9 +6,7 @@ class UpdateAssignment extends Component{
 
         e.preventDefault();
         console.log(this.refs.cname.value);
-        console.log(this.refs.subname.value);
-        console.log(this.refs.year.value);
-        console.log(this.refs.sem.value);
+        console.log(this.refs.exid.value);
         console.log(this.refs.date.value);
 
     }
@@ -17,7 +15,7 @@ class UpdateAssignment extends Component{
         return(
             <div>
             <div>
-            <h1>Edit Assignment</h1>
+            <h1>Edit Exam</h1>
             </div>
             <div className="container">
             <form className="form">
@@ -40,23 +38,15 @@ class UpdateAssignment extends Component{
             />
             </div>
             <div className="form-group">
-            <label>Year</label>
+            <label>Exam ID</label>
         <input
         type="text"
         name="subjectname"
         className="form-control"
-        ref="year"
+        ref="exid"
             />
             </div>
-            <div className="form-group">
-            <label>Semester</label>
-        <input
-        type="text"
-        name="subjectname"
-        className="form-control"
-        ref="sem"
-            />
-            </div>
+            
             <div className="form-group">
               <label>Due Date</label>
               <input type="date" 

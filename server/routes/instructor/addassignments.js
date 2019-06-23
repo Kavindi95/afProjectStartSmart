@@ -25,8 +25,8 @@ router.post("/", (req, res, next) => {
     });
   });
 
-router.patch('/:assignmentId',(req,res,next)=>{
-const id = req.params.assignmentId;
+router.put('/_id/:_id',(req,res,next)=>{
+const id = req.params.assignmentid;
 Assignment.update({_id:id},{$set:{date:req.body.date}})
 .exec()
 .then(result => {
@@ -72,5 +72,40 @@ router.get("/", (req, res, next) => {
         });
       });
   });
+
+
+  router.get("/id/:id", (req, res, next) => {
+    const id = req.params.id;
+    Assignment.findOne({ assignmentNumber: req.params.id })
+      .select("_id cname subname assignmentNumber assignment")
+      .exec()
+      .then(result => {
+        res.status(200).json({ result });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err
+        });
+      });
+  });
+
+  router.delete("/:assignmentId", (req, res, next) => {
+    const id = req.params.assignmentId;
+    Assignment.remove({ assignmentNumber: id })
+      .exec()
+      .then(result => {
+        res.status(200).json({ result });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err
+        });
+      });
+  });
+
+
+  
 
 module.exports=router;

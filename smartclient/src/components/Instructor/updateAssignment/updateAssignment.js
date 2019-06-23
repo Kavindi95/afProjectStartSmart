@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
-
+import axios from "axios";
 class UpdateAssignment extends Component{
 
     updateassignmentss(e){
 
         e.preventDefault();
-        console.log(this.refs.cname.value);
-        console.log(this.refs.subname.value);
-        console.log(this.refs.assnum.value);
-        console.log(this.refs.date.value);
+        var cname=this.refs.cname.value;
+        var subname=this.refs.subname.value;
+        var assnum=this.refs.assnum.value;
+        var date=this.refs.date.value;
 
+
+        axios.get("http://localhost:5000/addassignment/id/"+assnum).then(response => {
+      
+
+      var result=response.data.result;
+      var postcname=result.cname;
+      var postsubname=result.subname;
+      var postassnum=result.assignmentNumber; 
+      var postasse=result.assignment;
+      var postdate=date;
+      axios.delete("http://localhost:5000/addassignment/"+assnum).then(response=>{
+          console.log(response);
+      });
+
+      axios.post(
+        "http://localhost:5000/addassignment",
+        {
+            cname: postcname,
+            subname: postsubname,
+            assignmentNumber: postassnum,
+            assignment: postasse,
+            date: postdate
+        },
+        { headers: { Accept: "application/json" } }
+      );
+      console.log("posted");
+    });
     }
 
     render(){

@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 class markAssignment extends Component{
 
     entermarks(e){
 
         e.preventDefault();
-        console.log(this.refs.cname.value);
-        console.log(this.refs.subname.value);
-        console.log(this.refs.std.value);
-        console.log(this.refs.assnum.value);
-        console.log(this.refs.marks.value);
+        var cname=this.refs.cname.value;
+        var subname=this.refs.subname.value;
+        var std=this.refs.std.value;
+        var assnum=this.refs.assnum.value;
+        var marks=this.refs.marks.value;
+
+        axios.post(
+            "http://localhost:5000/markassignment",
+            {
+                cname: cname,
+                subname: subname,
+                assnumber: assnum,
+                std: std,
+                marks: marks
+            },
+            { headers: { Accept: "application/json" } }
+          );
+          console.log("posted");
 
     }
 
