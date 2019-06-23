@@ -1,4 +1,5 @@
 //Kavindi
+
 const assert = require("assert");
 const User = require("../model/user/user");
 
@@ -15,3 +16,4 @@ describe("Saving Data", function() {
         });
     });
 });
+

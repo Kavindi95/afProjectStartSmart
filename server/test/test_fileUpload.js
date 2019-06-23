@@ -1,4 +1,5 @@
 //Kavindi
+/*
 const assert = require("assert");
 const app = require("../app");
 
@@ -16,3 +17,4 @@ describe("Upload files", function() {
         });
     });
 });
+*/

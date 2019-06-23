@@ -13,10 +13,10 @@ class ViewExamAndUpload extends Component{
 
     componentDidMount(){
         //e.preventDefault();
-        axios.get('http://localhost:5000/addassignment').then(response => {
-            //console.log(response.data.assignment);
+        axios.get('http://localhost:5000/addexam').then(response => {
+            console.log(response.data.exam);
             this.setState({
-                exam: response.data.assignment
+                exam: response.data.exam
             })
         })
     }
@@ -25,9 +25,9 @@ class ViewExamAndUpload extends Component{
         let exam = this.state.exam.map((exam) => {
             return(
                 <tr class="table-primary" key={exam.id}>
-                <td>{exam.cname}</td>
+                <td>{exam.examtype}</td>
                 <td>{exam.subname}</td>
-                <td>{exam.assignment}</td>
+                <td>{exam.content}</td>
                 <td>{exam.date}</td>
                 </tr>
         )
@@ -38,9 +38,9 @@ class ViewExamAndUpload extends Component{
             <table className="table table-hover">
             <thead>
             <tr className="table-secondary">
-            <th scope="col">Course Name</th>
+            <th scope="col">Exam Type</th>
             <th scope="col">Subject Name</th>
-            <th scope="col">Available Assignment</th>
+            <th scope="col">Content</th>
             <th scope="col">Due Date</th>
             </tr>
         </thead>

@@ -86,7 +86,7 @@ export default class Page extends React.Component {
             <Home />
           ) : (
             <div>
-              <font size="5" color="orange">
+              <font size="5" color="black">
                 <strong>Sign In to Start Smart</strong>
               </font>
             </div>
